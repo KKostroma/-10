@@ -10,7 +10,7 @@ namespace Задание_10
     {
         static void Main(string[] args)
         {
-            Corner corner = new Corner(60,2,30);
+            Corner corner = new Corner(600,800,30);
             Console.WriteLine(corner.gradus);
             Console.WriteLine(corner.min);
             Console.WriteLine(corner.sec);
@@ -24,11 +24,48 @@ namespace Задание_10
         public int min;
         public int sec;
 
+        public double Gradus
+        {
+            set
+            {
+                if (value < 500)
+                {
+                    gradus = value;
+                }
+                else
+                {
+                    Console.WriteLine("Градус не может быть больше 500");
+                }
+            }
+            get
+            {
+                return gradus;  
+            }
+        }
+
+        public double Min
+        {
+            set
+            {
+                if (value < 700)
+                {
+                    min = (int)value;
+                }
+                else
+                {
+                    Console.WriteLine("Минут не может быть больше 700");
+                }
+            }
+            get
+            {
+                return min;
+            }
+        }
 
         public Corner(double gradus, int min, int sec)
         {
-            this.gradus = gradus;
-            this.min = min;
+            Gradus = gradus;
+            Min = min;
             this.sec = sec;
             if (min <= 0 || sec < 0)
             {
